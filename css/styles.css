@@ -1,127 +1,170 @@
+* {
+    box-sizing: border-box;
+}
 
-/* tener los estilos aqui define las reglas bases de CSS
-    que pueden ser sobreescritas con los media queries.
- */
 body {
-    background-color: antiquewhite;
-    min-width: auto;
-
-    background-image: url("https://assets.website-files.com/602ad192c5efdd5278e635af/620eba544ffba211e6cf9004_New%20Hero%20image.svg");
-    /* background-image: url("https://picsum.photos/200/300"); */
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: top center;
-
+    margin: 2rem;
+    font-size: 2rem;
+    font-family: sans-serif;
+    background-color: #000000;
 }
 
-
-img {
-    border: 1px solid;
-    border-radius: 20px;
+h1 {
+    color: #ffffff;
+    font-size: 3rem;
+    text-align: center;
 }
 
-.container {
-    display: flex;
-    flex-direction: row;
-    /* flex-wrap: wrap; */
-    justify-content: space-around;
-    align-items: center;
+div {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.261);
+    border-radius: 5px;
 }
 
-
-
-/*  Media Queries para celular que no revisa la orientacion,
-    es importante que para sobreescribir una de las reglas
-    creadas arriba tiene que ser exactamente igual eg:
-    si arriba defini 
-    body .container {estilos}, para cambiarlo, debo poner 
-    dentro del mediaquery : body .container {estilos nuevos}
-*/
-@media (min-width: 320px) and (max-width:768px) {
-    body {
-        background-color: #fff;
-        color: #000;
-    }
-
-    .container {
-        width: 100%;
-    }
-
-    p {
-        text-align: center;
-    }
-
-    img {
-        width: 80%;
-        margin: 20px auto;
-        border-radius: 15px;
-    }
-
-    .container {
-        flex-direction: column;
-    }
+.static,
+.relative,
+.absolute,
+.fixed,
+.sticky {
+    padding: 1rem;
 }
 
-/*  Media Queries para celular con orientacion landscape
-    (horizontal) 
-*/
-@media 
-    (min-width: 320px) 
-    and (max-width:1080px)
-    and (orientation: landscape) {
-    body {
-        background-color: red;
-        color: white;
-    }
+/* .scroll {
+    position: relative;
+} */
 
-    .container {
-        width: 100%;
-    }
+.parent {
+    background-color: #555555;
+    position: relative;
+    border:5px solid red;
+    height: 800px;
+}
 
-    p {
-        text-align: center;
-    }
-
-    img {
-        width: 80%;
-        margin: 20px auto;
-        border-radius: 15px;
-    }
-
-    .container {
-        flex-direction: column;
-    }
+.static {
+    background-color: #dddddd;
 }
 
 /* 
-    Media Querie para tablet con orientation portrait (vertical)
+    Position relative funciona igual que el static
+    pero permite desplazar el elemento
+    empujandolo desde la direccion especificada
+    TOP y LEFT tienen prioridad sobre BOTTOM y RIGHT
+ */
+.relative {
+    background-color: #81c476;
+    position: relative;
+    /* top: 40px; */
+    /* left: 100px; */
+    /* right: 300px; */
+    /* bottom: 50px; */
+}
+
+
+/* 
+    Position absoulte permite posicionar elementos 
+    libremente en su funcion de su padre contenedor siempre
+    y cuando el padre sea relative
+    Las coordenas TOP, BOTTOM, LEFT y RIGHT, arrastrarn al elemento
+ */
+.absolute {
+    background-color: #fc9191;
+    /* position: absolute; */
+    /* top: -15px; */
+    /* right: 0; */
+    /* left: 0; */
+}
+
+.container {
+    color:white;
+}
+
+footer.container {
+    position: fixed;
+    bottom: 0;
+    background-color: #000;
+    margin-top: 10px;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    z-index: 300;
+}
+
+/*  
+    Position Fixed, acomoda el elemento en un punto determinado
+    de la pagina y ahi lo deja siempre
+    tambien se pueden dar coordenadas en base a la pagina completa
+    TOP, BOTTOM, LEFT, RIGHT
 */
-@media 
-    (min-width:768px) 
-    and (max-width:1024px)
-    and (orientation: portrait) {
-    body {
-        background-color: black;
-        color: white;
-    }
-
-    img {
-        width: 100%;
-        border: 2px solid #fff;
-    }
+.fixed {
+    background-color: #a8d5e2;
+    /* position: fixed; */
+    top: 0;
 }
 
-/* media queries para laptops smalls y pantallas HD */
-@media (min-width:1280px) and (max-width:1920px) {
+/* 
+    Position Sticky se comporta como una mezcla entre relative y fixed
+    Es decir, se comporta como un elmento relative hasta que debido al 
+    scroll es visible en el viewport, se comporta como un elemento fixed.
+    En este ejemplo se pone como sticky en Top:0 , entonces cuando 
+    se hace scroll en el padre el elemento llega a la posicion 0, se hace fixed.
 
+    El z-index, permite acomodar los elmentos por capas para que uno
+    pueda tener mayor profundidad que otros.
+ */
+.sticky {
+    background-color: #e1e1ac;
+    position: sticky;
+    top: 0;
+    border: 10px solid blue;
+    z-index: 100;
+    transition: all ease 2s;
 }
 
-@media (min-width:1921px) {
-    #content {
-        max-width: 1920px;
-        margin : 0 auto;
-    }
+.socialBar {
+    display: flex;
+    width: 50px;
+    flex-direction: column;
+    position: fixed;
+    align-items:  center;
+    justify-content:center;
+    top: 50%;
+    left: 0;
 }
 
+.box {
+    width: 50px;
+    height: 50px;
+    color: white;
+    border: 1px solid #eee;
+    text-align: center;
+}
+
+.mouse {
+    position:relative;
+    min-height: 500px;
+    
+}
+
+.caja {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #fff;
+    position: absolute;
+}
+
+.mouse .caja:nth-child(1) {
+    top : 20px;
+    left:55%;
+}
+
+.mouse .caja:nth-child(2) {
+    top :70px;
+    left:41%;
+    z-index: 10;
+}
+
+.mouse .caja:nth-child(3) {
+    top : 20px;
+    right:56%;
+}
 
 
