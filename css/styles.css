@@ -1,0 +1,127 @@
+
+/* tener los estilos aqui define las reglas bases de CSS
+    que pueden ser sobreescritas con los media queries.
+ */
+body {
+    background-color: antiquewhite;
+    min-width: auto;
+
+    background-image: url("https://assets.website-files.com/602ad192c5efdd5278e635af/620eba544ffba211e6cf9004_New%20Hero%20image.svg");
+    /* background-image: url("https://picsum.photos/200/300"); */
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top center;
+
+}
+
+
+img {
+    border: 1px solid;
+    border-radius: 20px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+
+/*  Media Queries para celular que no revisa la orientacion,
+    es importante que para sobreescribir una de las reglas
+    creadas arriba tiene que ser exactamente igual eg:
+    si arriba defini 
+    body .container {estilos}, para cambiarlo, debo poner 
+    dentro del mediaquery : body .container {estilos nuevos}
+*/
+@media (min-width: 320px) and (max-width:768px) {
+    body {
+        background-color: #fff;
+        color: #000;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    p {
+        text-align: center;
+    }
+
+    img {
+        width: 80%;
+        margin: 20px auto;
+        border-radius: 15px;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+}
+
+/*  Media Queries para celular con orientacion landscape
+    (horizontal) 
+*/
+@media 
+    (min-width: 320px) 
+    and (max-width:1080px)
+    and (orientation: landscape) {
+    body {
+        background-color: red;
+        color: white;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    p {
+        text-align: center;
+    }
+
+    img {
+        width: 80%;
+        margin: 20px auto;
+        border-radius: 15px;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+}
+
+/* 
+    Media Querie para tablet con orientation portrait (vertical)
+*/
+@media 
+    (min-width:768px) 
+    and (max-width:1024px)
+    and (orientation: portrait) {
+    body {
+        background-color: black;
+        color: white;
+    }
+
+    img {
+        width: 100%;
+        border: 2px solid #fff;
+    }
+}
+
+/* media queries para laptops smalls y pantallas HD */
+@media (min-width:1280px) and (max-width:1920px) {
+
+}
+
+@media (min-width:1921px) {
+    #content {
+        max-width: 1920px;
+        margin : 0 auto;
+    }
+}
+
+
+
