@@ -1,0 +1,34 @@
+
+
+
+
+
+.gallery {
+    @include displayFlexDinamico(row, center, center, wrap);
+    img {
+        @include imgTransition();
+        width: $imgDimensions;
+        height: $imgDimensions;
+        margin: $marginImgGallery;
+
+        &:hover {
+            filter: sepia();
+        }
+    }
+
+    @media (min-width:320px) and (max-width:768px) {
+       border: 10px solid ;
+
+       img {
+           border-radius: 50%;
+       }
+    }
+
+    @media (min-width:768px) {
+        
+    }
+}
+
+// img:hover{
+
+// }

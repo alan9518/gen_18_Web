@@ -1,170 +1,123 @@
 * {
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 body {
-    margin: 2rem;
-    font-size: 2rem;
-    font-family: sans-serif;
-    background-color: #000000;
+  color: rgba(177, 23, 51, 0.782);
+  background-color: #efefef;
+  font-family: "Lato", sans-serif;
 }
 
-h1 {
-    color: #ffffff;
-    font-size: 3rem;
-    text-align: center;
+nav {
+  border: 2px solid rgba(177, 23, 51, 0.782);
+  width: 100%;
+  margin: 45px;
+  width: 100%;
 }
 
-div {
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.261);
-    border-radius: 5px;
+.marginado {
+  margin: 45px;
+  border: 2px solid rgba(177, 23, 51, 0.782);
+  width: 100%;
+  height: 200px;
+  font-family: "Fredoka", sans-serif;
 }
 
-.static,
-.relative,
-.absolute,
-.fixed,
-.sticky {
-    padding: 1rem;
+a:hover {
+  color: rgba(177, 23, 51, 0.782);
 }
 
-/* .scroll {
-    position: relative;
-} */
-
-.parent {
-    background-color: #555555;
-    position: relative;
-    border:5px solid red;
-    height: 800px;
+.marginado nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: no-wrap;
+      flex-wrap: no-wrap;
 }
 
-.static {
-    background-color: #dddddd;
+.container header nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-/* 
-    Position relative funciona igual que el static
-    pero permite desplazar el elemento
-    empujandolo desde la direccion especificada
-    TOP y LEFT tienen prioridad sobre BOTTOM y RIGHT
- */
-.relative {
-    background-color: #81c476;
-    position: relative;
-    /* top: 40px; */
-    /* left: 100px; */
-    /* right: 300px; */
-    /* bottom: 50px; */
+.container header nav li {
+  padding: 20px;
 }
 
-
-/* 
-    Position absoulte permite posicionar elementos 
-    libremente en su funcion de su padre contenedor siempre
-    y cuando el padre sea relative
-    Las coordenas TOP, BOTTOM, LEFT y RIGHT, arrastrarn al elemento
- */
-.absolute {
-    background-color: #fc9191;
-    /* position: absolute; */
-    /* top: -15px; */
-    /* right: 0; */
-    /* left: 0; */
+@media (min-width: 320px) and (max-width: 768px) {
+  .container header {
+    background-color: red;
+  }
 }
 
-.container {
-    color:white;
+@media (min-width: 768px) {
+  .container header {
+    background-color: yellow;
+  }
 }
 
-footer.container {
-    position: fixed;
-    bottom: 0;
-    background-color: #000;
-    margin-top: 10px;
-    left: 0;
-    right: 0;
-    padding: 20px;
-    z-index: 300;
+.gallery {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
-/*  
-    Position Fixed, acomoda el elemento en un punto determinado
-    de la pagina y ahi lo deja siempre
-    tambien se pueden dar coordenadas en base a la pagina completa
-    TOP, BOTTOM, LEFT, RIGHT
-*/
-.fixed {
-    background-color: #a8d5e2;
-    /* position: fixed; */
-    top: 0;
+.gallery img {
+  -webkit-transition: -webkit-filter 500ms linear;
+  transition: -webkit-filter 500ms linear;
+  transition: filter 500ms linear;
+  transition: filter 500ms linear, -webkit-filter 500ms linear;
+  width: 150px;
+  height: 150px;
+  margin: 10px;
 }
 
-/* 
-    Position Sticky se comporta como una mezcla entre relative y fixed
-    Es decir, se comporta como un elmento relative hasta que debido al 
-    scroll es visible en el viewport, se comporta como un elemento fixed.
-    En este ejemplo se pone como sticky en Top:0 , entonces cuando 
-    se hace scroll en el padre el elemento llega a la posicion 0, se hace fixed.
-
-    El z-index, permite acomodar los elmentos por capas para que uno
-    pueda tener mayor profundidad que otros.
- */
-.sticky {
-    background-color: #e1e1ac;
-    position: sticky;
-    top: 0;
-    border: 10px solid blue;
-    z-index: 100;
-    transition: all ease 2s;
+.gallery img:hover {
+  -webkit-filter: sepia();
+          filter: sepia();
 }
 
-.socialBar {
-    display: flex;
-    width: 50px;
-    flex-direction: column;
-    position: fixed;
-    align-items:  center;
-    justify-content:center;
-    top: 50%;
-    left: 0;
+@media (min-width: 320px) and (max-width: 768px) {
+  .gallery {
+    border: 10px solid;
+  }
+  .gallery img {
+    border-radius: 50%;
+  }
 }
-
-.box {
-    width: 50px;
-    height: 50px;
-    color: white;
-    border: 1px solid #eee;
-    text-align: center;
-}
-
-.mouse {
-    position:relative;
-    min-height: 500px;
-    
-}
-
-.caja {
-    width: 100px;
-    height: 100px;
-    border: 1px solid #fff;
-    position: absolute;
-}
-
-.mouse .caja:nth-child(1) {
-    top : 20px;
-    left:55%;
-}
-
-.mouse .caja:nth-child(2) {
-    top :70px;
-    left:41%;
-    z-index: 10;
-}
-
-.mouse .caja:nth-child(3) {
-    top : 20px;
-    right:56%;
-}
-
-
+/*# sourceMappingURL=styles.css.map */
