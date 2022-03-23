@@ -48,6 +48,25 @@ a:hover {
       flex-wrap: no-wrap;
 }
 
+.searchContainer {
+  position: relative;
+  border: 1px solid red;
+  width: 340px;
+}
+
+.searchContainer input {
+  width: 100%;
+  padding: 5px;
+}
+
+.searchContainer span {
+  position: absolute;
+  right: 0;
+  top: 2px;
+  height: 100%;
+  border-left: 1px solid #e3e3e3;
+}
+
 .container header nav ul {
   display: -webkit-box;
   display: -ms-flexbox;
